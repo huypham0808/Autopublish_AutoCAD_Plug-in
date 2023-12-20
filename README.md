@@ -2,7 +2,6 @@
 1. What is SD_PrintTool?
 2. Why should you use this plug-in?
 3. How to setup?
-This plug-in will auto publish all of layouts in current drawing (.dwg) file to a .pdf file by only one command.
 
 ### 1. What is SD_PrintTool?
 + SD_PrintTool is a plug-in for AutoCAD help users can export all layouts in a Dwg file into a PDF file by only one COMMAND.
