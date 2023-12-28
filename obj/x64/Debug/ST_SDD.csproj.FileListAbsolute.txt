@@ -1,0 +1,5 @@
+D:\4.PERSONAL\5.CODING\17.ST_PrintTool\SD_PrintTool_AutoCAD_Plug-in\bin\x64\Debug\ST_AutoPrintV03.dll
+D:\4.PERSONAL\5.CODING\17.ST_PrintTool\SD_PrintTool_AutoCAD_Plug-in\bin\x64\Debug\ST_AutoPrintV03.pdb
+D:\4.PERSONAL\5.CODING\17.ST_PrintTool\SD_PrintTool_AutoCAD_Plug-in\obj\x64\Debug\ST_SDD.csproj.CoreCompileInputs.cache
+D:\4.PERSONAL\5.CODING\17.ST_PrintTool\SD_PrintTool_AutoCAD_Plug-in\obj\x64\Debug\ST_AutoPrintV03.dll
+D:\4.PERSONAL\5.CODING\17.ST_PrintTool\SD_PrintTool_AutoCAD_Plug-in\obj\x64\Debug\ST_AutoPrintV03.pdb
