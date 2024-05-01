@@ -10,3 +10,9 @@ D:\4.PERSONAL\5.CODING\17.ST_PrintTool\ST_AutoPrintV04\obj\x64\Debug\ST_AutoPrin
 D:\4.PERSONAL\5.CODING\17.ST_PrintTool\ST_AutoPrintV04\obj\x64\Debug\ST_AutoPrintV03.csproj.CoreCompileInputs.cache
 D:\4.PERSONAL\5.CODING\17.ST_PrintTool\ST_AutoPrintV04\obj\x64\Debug\ST_AutoPrintV03.dll
 D:\4.PERSONAL\5.CODING\17.ST_PrintTool\ST_AutoPrintV04\obj\x64\Debug\ST_AutoPrintV03.pdb
+D:\HUY\7.NET C SHARP\CAD_API\Autoprint\SD_PrintTool_AutoCAD_Plug-in\bin\x64\Debug\ST_AutoPrintV03.dll
+D:\HUY\7.NET C SHARP\CAD_API\Autoprint\SD_PrintTool_AutoCAD_Plug-in\bin\x64\Debug\ST_AutoPrintV03.pdb
+D:\HUY\7.NET C SHARP\CAD_API\Autoprint\SD_PrintTool_AutoCAD_Plug-in\obj\x64\Debug\ST_AutoPrintV03.csproj.AssemblyReference.cache
+D:\HUY\7.NET C SHARP\CAD_API\Autoprint\SD_PrintTool_AutoCAD_Plug-in\obj\x64\Debug\ST_AutoPrintV03.csproj.CoreCompileInputs.cache
+D:\HUY\7.NET C SHARP\CAD_API\Autoprint\SD_PrintTool_AutoCAD_Plug-in\obj\x64\Debug\ST_AutoPrintV03.dll
+D:\HUY\7.NET C SHARP\CAD_API\Autoprint\SD_PrintTool_AutoCAD_Plug-in\obj\x64\Debug\ST_AutoPrintV03.pdb

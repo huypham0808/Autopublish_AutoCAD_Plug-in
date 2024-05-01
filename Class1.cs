@@ -33,13 +33,14 @@ namespace ST_AutoPrintV03
             Application.SetSystemVariable("BACKGROUNDPLOT", 0);
 
             // Get the layout ObjectId List
-            List<ObjectId> layoutIds = GetLayoutIds(db);
+            
 
             string dwgFileName = (string)Application.GetSystemVariable("DWGNAME");
             string dwgPath = (string)Application.GetSystemVariable("DWGPREFIX");
 
             using (Transaction trans = db.TransactionManager.StartTransaction())
             {
+                List<ObjectId> layoutIds = GetLayoutIds(db, trans);
                 DsdEntryCollection collection = new DsdEntryCollection();
 
                 foreach (ObjectId layoutId in layoutIds)
@@ -109,23 +110,21 @@ namespace ST_AutoPrintV03
             
         }
 
-
-
-
-        private static List<ObjectId> GetLayoutIds(Database db)
+        private static List<ObjectId> GetLayoutIds(Database db, Transaction tr)
         {
             List<ObjectId> layoutIds = new List<ObjectId>();
 
             using (Transaction Tx = db.TransactionManager.StartTransaction())
             {
                 DBDictionary layoutDic = Tx.GetObject(db.LayoutDictionaryId, OpenMode.ForRead, false) as DBDictionary;
-
+                int tabOrder = 0;
                 foreach (DBDictionaryEntry entry in layoutDic)
                 {
-                    layoutIds.Add(entry.Value);
+                    layoutIds.Add(entry.Value);                  
                 }
+               
             }
-
+            layoutIds = layoutIds.OrderBy(id => ((Layout)tr.GetObject(id, OpenMode.ForRead)).TabOrder).ToList();
             return layoutIds;
         }
         static void Publisher_AboutToBeginPublishing(object sender, Autodesk.AutoCAD.Publishing.AboutToBeginPublishingEventArgs e)
