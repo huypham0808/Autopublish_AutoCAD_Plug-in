@@ -1,28 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autodesk.AutoCAD;
 using Autodesk.AutoCAD.Runtime;
 using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
-using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.EditorInput;
 
 using Autodesk.AutoCAD.PlottingServices;
-using Autodesk.AutoCAD.Publishing;
-using System.IO;
-using System.Windows;
-using System.Windows.Forms;
 using Application = Autodesk.AutoCAD.ApplicationServices.Application;
 using System.Diagnostics;
 
-namespace ST_AutoPrintV03
+namespace SST_SDD
 {
     public class Class1
     {
-        [CommandMethod("SD")]
+        [CommandMethod("SDD")]
         public static void PublishPDF()
         {
             Document doc = Application.DocumentManager.MdiActiveDocument;
@@ -53,7 +44,6 @@ namespace ST_AutoPrintV03
                     entry.Layout = layout.LayoutName;
                     entry.Title = "Layout_" + layout.LayoutName;
                     entry.NpsSourceDwg = entry.DwgName;
-                    //entry.Nps = "STN plot style";
                     entry.Nps = GetCurrentNps();
 
                     collection.Add(entry);
@@ -67,13 +57,6 @@ namespace ST_AutoPrintV03
                 try
                 {
                     if (System.IO.File.Exists(dsdData.DestinationName))
-                    //{
-                    //    using (System.IO.FileStream fileStream = new System.IO.FileStream(dsdData.DestinationName, System.IO.FileMode.Open, System.IO.FileAccess.ReadWrite, System.IO.FileShare.None))
-                    //    {
-                    //        MessageBox.Show("Please close the current PDF file before proceeding.", "File In Use", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //        return;
-                    //    }
-                    //}
                     System.IO.File.Delete(dsdData.DestinationName);
                 }
                 catch(Autodesk.AutoCAD.Runtime.Exception ex)
@@ -81,8 +64,6 @@ namespace ST_AutoPrintV03
                     ed.WriteMessage("Please close the current PDF file before printing.");
                     return;
                 }
-
-
                 dsdData.SetDsdEntryCollection(collection);
                 string dsdFile = dsdData.ProjectPath + dwgFileName + ".dsd";
                 dsdData.WriteDsd(dsdFile);
@@ -109,8 +90,12 @@ namespace ST_AutoPrintV03
             Application.SetSystemVariable("BACKGROUNDPLOT", bgPlot);
             
         }
+<<<<<<< HEAD
 
         private static List<ObjectId> GetLayoutIds(Database db, Transaction tr)
+=======
+        private static List<ObjectId> GetLayoutIds(Database db)
+>>>>>>> 5b7cf52210e6a2260f3393227de427367a157efe
         {
             List<ObjectId> layoutIds = new List<ObjectId>();
 
