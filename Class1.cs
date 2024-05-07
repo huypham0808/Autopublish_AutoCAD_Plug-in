@@ -90,12 +90,8 @@ namespace SST_SDD
             Application.SetSystemVariable("BACKGROUNDPLOT", bgPlot);
             
         }
-<<<<<<< HEAD
 
         private static List<ObjectId> GetLayoutIds(Database db, Transaction tr)
-=======
-        private static List<ObjectId> GetLayoutIds(Database db)
->>>>>>> 5b7cf52210e6a2260f3393227de427367a157efe
         {
             List<ObjectId> layoutIds = new List<ObjectId>();
 
