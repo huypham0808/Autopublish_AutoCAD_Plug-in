@@ -18,7 +18,8 @@
  ![WarningLoad](https://github.com/huypham0808/SD_PrintTool_AutoCAD_Plug-in/assets/114324328/ef3e4182-7502-4c0f-8030-03e98df147e9)
 
   [A demo for this plug-in which I have assign to the personal Menu bar]( https://youtu.be/xnxpCdFyJ6w?si=WFvF2qQWGaktQ0mT)
- 
+  
+   [![YouTube](http://i.ytimg.com/vi/xnxpCdFyJ6w/hqdefault.jpg)](https://www.youtube.com/watch?v=xnxpCdFyJ6w)
 * Now, you guys can enjoy the plug-in.
   <br>
   --- Good luck to my friend---
