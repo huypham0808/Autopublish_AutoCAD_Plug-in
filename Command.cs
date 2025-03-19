@@ -17,14 +17,14 @@ using System.Windows;
 using System.Windows.Forms;
 using Application = Autodesk.AutoCAD.ApplicationServices.Application;
 using System.Diagnostics;
-
-namespace ST_SD
+[assembly: CommandClass(typeof(AutoPrint.Class1))]
+namespace AutoPrint
 {
     public class Class1
     {
         public bool Visible { get; private set; }
 
-        [CommandMethod("SD")]
+        [CommandMethod("PCCOLD")]
         public static void PublishPDF()
         {
             Document doc = Application.DocumentManager.MdiActiveDocument;
@@ -57,7 +57,7 @@ namespace ST_SD
                     DsdEntry entry = new DsdEntry();
                     entry.DwgName = dwgPath + dwgFileName;
                     entry.Layout = layout.LayoutName;
-                    entry.Title = "Layout_" + layout.LayoutName;
+                    entry.Title = layout.LayoutName;
                     entry.NpsSourceDwg = entry.DwgName;
                     //entry.Nps = "STN plot style";
                     entry.Nps = GetCurrentNps();
@@ -77,7 +77,7 @@ namespace ST_SD
                 }
                 catch(Autodesk.AutoCAD.Runtime.Exception ex)
                 {                    
-                    ed.WriteMessage("Please close the current PDF file before printing.");
+                    MessageBox.Show("Please close the current PDF file","AutoCAD", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -152,7 +152,7 @@ namespace ST_SD
             }
         }
         //NEW VERSION 05/05/2024
-        [CommandMethod("PLTOOL")]
+        [CommandMethod("PCC", CommandFlags.Modal)]
         public void AutoPublishLayout()
         {
             var doc = Application.DocumentManager.MdiActiveDocument;
