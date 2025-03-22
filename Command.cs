@@ -9,6 +9,7 @@ using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.EditorInput;
+
 using Autodesk.AutoCAD.PlottingServices;
 using Autodesk.AutoCAD.Publishing;
 using System.IO;
@@ -17,15 +18,13 @@ using System.Windows.Forms;
 using Application = Autodesk.AutoCAD.ApplicationServices.Application;
 using System.Diagnostics;
 
-
-[assembly: CommandClass(typeof(AutoPrint.Class1))]
-namespace AutoPrint
+namespace ST_SD
 {
     public class Class1
     {
         public bool Visible { get; private set; }
 
-        //[CommandMethod("PCCOLD")]
+        [CommandMethod("SD")]
         public static void PublishPDF()
         {
             Document doc = Application.DocumentManager.MdiActiveDocument;
@@ -58,7 +57,7 @@ namespace AutoPrint
                     DsdEntry entry = new DsdEntry();
                     entry.DwgName = dwgPath + dwgFileName;
                     entry.Layout = layout.LayoutName;
-                    entry.Title = layout.LayoutName;
+                    entry.Title = "Layout_" + layout.LayoutName;
                     entry.NpsSourceDwg = entry.DwgName;
                     //entry.Nps = "STN plot style";
                     entry.Nps = GetCurrentNps();
@@ -76,9 +75,9 @@ namespace AutoPrint
                     if (System.IO.File.Exists(dsdData.DestinationName))
                         System.IO.File.Delete(dsdData.DestinationName);
                 }
-                catch(Autodesk.AutoCAD.Runtime.Exception)
-                {
-                    System.Windows.Forms.MessageBox.Show("Please close the current PDF file","AutoCAD", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                catch(Autodesk.AutoCAD.Runtime.Exception ex)
+                {                    
+                    ed.WriteMessage("Please close the current PDF file before printing.");
                     return;
                 }
 
@@ -153,7 +152,7 @@ namespace AutoPrint
             }
         }
         //NEW VERSION 05/05/2024
-        [CommandMethod("PCC", CommandFlags.Modal)]
+        [CommandMethod("PLTOOL")]
         public void AutoPublishLayout()
         {
             var doc = Application.DocumentManager.MdiActiveDocument;
@@ -183,6 +182,7 @@ namespace AutoPrint
                     var lays = tr.GetObject(db.LayoutDictionaryId, OpenMode.ForRead) as DBDictionary;
                     foreach (var item in lays)
                     {
+                        //if (item.Key.ToUpper() == "Model") continue;
                         var lay1 = tr.GetObject(lm.GetLayoutId(item.Key), OpenMode.ForRead) as Layout;
                         if (lay1.LayoutName.Equals("Model", StringComparison.OrdinalIgnoreCase)) continue;
                         myList.Add(lay1);
